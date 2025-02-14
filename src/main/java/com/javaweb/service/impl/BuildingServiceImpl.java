@@ -59,6 +59,7 @@ public class BuildingServiceImpl implements BuildingService {
 
     @Override
     public void deleteById(List<Long> ids) {
+        // xoa cac lien ket voi bang building
         assignmentBuildingRepository.deleteByBuildingEntity_IdIn(ids);
         rentAreaRepository.deleteByBuildingEntity_IdIn(ids);
         buildingRepository.deleteByIdIn(ids);
@@ -66,6 +67,7 @@ public class BuildingServiceImpl implements BuildingService {
 
     @Override
     public BuildingEntity createOrUpdateBuildings(BuildingDTO buildingDTO) throws ServiceException {
+        // convert dto sang entity
         BuildingEntity buildingEntity = buildingConverter.toBuildingEntity(buildingDTO);
         if(buildingEntity.getId() != null ) {
             rentAreaRepository.deleteByBuildingEntity(buildingEntity);

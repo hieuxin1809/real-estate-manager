@@ -39,6 +39,5 @@ public class AssignmentBuildingServiceImpl implements AssignmentBuildingService 
             assignmentBuildingEntities.add(assignmentBuildingEntity);
         }
         assignmentBuildingRepository.saveAll(assignmentBuildingEntities);
-
     }
 }

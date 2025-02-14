@@ -381,10 +381,12 @@
             success : function(response){ // hàm callback khi thành công
                 console.log('success');
                 alert("Assingment Success");
+                window.location.href='<c:url value="/admin/building-list" />'
             },
             error : function(response){
                 console.log('failed');
                 alert("Assingment Failed");
+                window.location.href='<c:url value="/admin/building-list" />'
             }
         })
     }
