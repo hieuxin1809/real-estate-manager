@@ -11,21 +11,21 @@ import java.util.Map;
 @Component
 public class BuildingSearchBuilderConverter {
     public BuildingSearchBuilder toBuildingSearchBuilder(BuildingSearchRequest params) {
-        BuildingSearchBuilder buildingSearchBuilder = new BuildingSearchBuilder.Builder()
-                .setName(MapUtils.getObject(params.getName(), String.class))
-                .setDistrict(MapUtils.getObject(params.getDistrict(), String.class))
-                .setAreaFrom(MapUtils.getObject(params.getAreaFrom(), Long.class))
-                .setAreaTo(MapUtils.getObject(params.getAreaTo(), Long.class))
-                .setFloorArea(MapUtils.getObject(params.getFloorArea(), Long.class))
-                .setManagerName(MapUtils.getObject(params.getManagerName(), String.class))
-                .setManagerPhone(MapUtils.getObject(params.getManagerPhoneNumber(), String.class))
-                .setTypeCode(params.getTypeCode())
-                .setRentPriceFrom(MapUtils.getObject(params.getRentPriceFrom(), Long.class))
-                .setRentPriceTo(MapUtils.getObject(params.getRentPriceTo(), Long.class))
-                .setNumberOfBasement(MapUtils.getObject(params.getNumberOfBasement(), Long.class))
-                .setStaffId(MapUtils.getObject(params.getStaffId(), Long.class))
-                .setStreet(MapUtils.getObject(params.getStreet(), String.class))
-                .setWard(MapUtils.getObject(params.getWard(), String.class))
+        BuildingSearchBuilder buildingSearchBuilder = BuildingSearchBuilder.builder()
+                .name(MapUtils.getObject(params.getName(), String.class))
+                .district(MapUtils.getObject(params.getDistrict(), String.class))
+                .areaFrom(MapUtils.getObject(params.getAreaFrom(), Long.class))
+                .areaTo(MapUtils.getObject(params.getAreaTo(), Long.class))
+                .floorArea(MapUtils.getObject(params.getFloorArea(), Long.class))
+                .managerName(MapUtils.getObject(params.getManagerName(), String.class))
+                .managerPhone(MapUtils.getObject(params.getManagerPhoneNumber(), String.class))
+                .typeCode(params.getTypeCode())
+                .rentPriceFrom(MapUtils.getObject(params.getRentPriceFrom(), Long.class))
+                .rentPriceTo(MapUtils.getObject(params.getRentPriceTo(), Long.class))
+                .numberOfBasement(MapUtils.getObject(params.getNumberOfBasement(), Long.class))
+                .staffId(MapUtils.getObject(params.getStaffId(), Long.class))
+                .street(MapUtils.getObject(params.getStreet(), String.class))
+                .ward(MapUtils.getObject(params.getWard(), String.class))
                 .build();
         return buildingSearchBuilder;
     }

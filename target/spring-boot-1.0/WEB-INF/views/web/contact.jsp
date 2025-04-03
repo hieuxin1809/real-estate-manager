@@ -12,46 +12,6 @@
 </head>
 <body>
 <div class="page-wrapper">
-    <%--<header>--%>
-        <%--<!-- MENU  -->--%>
-        <%--<div class="p-4">--%>
-            <%--<div class="row navbar">--%>
-                <%--<div class="col-12 col-md-3">--%>
-                    <%--<div class="logo">--%>
-                        <%--<a href="">--%>
-                            <%--<img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo.png?1676257083798"--%>
-                                 <%--alt="">--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-12 col-md-6">--%>
-                    <%--<div class="item-menu">--%>
-                        <%--<div class="nav nav1">--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/trang-chu"><span>Trang--%>
-                                            <%--chủ</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/gioi-thieu"><span>Giới--%>
-                                            <%--thiệu</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/san-pham"><span>Sản phẩm--%>
-                                        <%--</span></a></div>--%>
-                            <%--<div class="nav-item p-2"><a class="nav-item-link" href="/tin-tuc"><span>Tin--%>
-                                            <%--tức</span></a></div>--%>
-                            <%--<div class="nav-item p-2">--%>
-                                <%--<a class="nav-item-link" href="/lien-he">--%>
-                                    <%--<span style="color: var(--primary-color);">Liên hệ</span>--%>
-                                <%--</a>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div class="col-12 col-md-3">--%>
-                    <%--<button class="btn btn-primary px-4">--%>
-                        <%--Liên hệ tư vấn--%>
-                    <%--</button>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</div>--%>
-    <%--</header>--%>
-    <!-- INTRO  -->
     <div class="intro text-center mb-5">
         <div class="title-page">Liên hệ</div>
         <div class="row">
@@ -97,37 +57,37 @@
                         <ul class="margin-bottom-15 link" style="list-style-type: none;">
                             <li>
                                 <span class="block_fonticon"><i class="fa fa-map-marker icon-lienhe"></i></span>
-                                <span class="title-li"> 46 Man Thiện, TP. Thủ Đức, TP. HCM</span>
+                                <span class="title-li">Số 3 Cầu Giấy , Thành Phố Hà Nội</span>
                             </li>
                             <li>
                                 <span class="block_fonticon"><i class="fa fa-mobile icon-lienhe"></i></span>
                                 <span class="title-li">
-                                        Hotline: <a style="color: #434a6e;" class="fone" href="">0922227</a>
+                                        Hotline: <a style="color: #434a6e;" class="fone" href="">0342046981</a>
 
                                     </span>
                             </li>
                             <li>
                                 <span class="block_fonticon"><i class="fa fa-envelope icon-lienhe"></i></span>
                                 <span class="title-li">Email: <a style="color: #434a6e;"
-                                                                 href="">vsh@gmail.com</a></span>
+                                                                 href="">trunghieu6bttt@@gmail.com</a></span>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
                     <h2 class="title-lienhe"><strong>Liên hệ với chúng tôi</strong></h2>
-                    <form>
+                    <form id="formContract" method="post">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Họ và tên">
+                                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Họ và tên">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Email">
+                                <input type="text" id="email" name="email" class="form-control" placeholder="Email">
                             </div>
                         </div>
-                        <input type="text" class="form-control mt-3" placeholder="Số điện thoại">
-                        <input type="text" class="form-control mt-3" placeholder="Nội dung">
-                        <button class="btn btn-primary px-4 mt-3">
+                        <input type="text" name="phone" id="phone" class="form-control mt-3" placeholder="Số điện thoại">
+                        <input type="text" name="demand" id="demand" class="form-control mt-3" placeholder="Nội dung">
+                        <button id="btnContract" class="btn btn-primary px-4 mt-3" type="submit">
                             Gửi liên hệ
                         </button>
                     </form>
@@ -153,7 +113,7 @@
                                 </div>
                                 <div class="content-center-footer">
                                     <p class="mb-1 mt-3">Trụ sở chính</p>
-                                    <p class="desc-footer">Số 46 Man Thiện, TP Thủ Đức, TP HCM</p>
+                                    <p class="desc-footer">Số 3 Cầu Giấy , Thành Phố Hà Nội</p>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 text-center">
@@ -162,7 +122,7 @@
                                 </div>
                                 <div class="content-center-footer">
                                     <p class="mb-1 mt-3">Hotline</p>
-                                    <p class="desc-footer"><a class="a-text" href="#">098828</a></p>
+                                    <p class="desc-footer"><a class="a-text" href="#">0988285632</a></p>
                                 </div>
                             </div>
                             <div class="col-12 col-md-4 text-center">
@@ -171,7 +131,7 @@
                                 </div>
                                 <div class="content-center-footer">
                                     <p class="mb-1 mt-3">Email</p>
-                                    <p class="desc-footer"><a class="a-text" href="#">vsh@gmail.com</a>
+                                    <p class="desc-footer"><a class="a-text" href="#">trunghieu6bttt@gmail.com</a>
                                     </p>
                                 </div>
                             </div>
@@ -233,6 +193,57 @@
         </div>
     </footer>
 </div>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    $('#formContract').submit(function (e){
+       e.preventDefault();
+        $('.error-message').remove();
+       var formData = $(this).serializeArray();
+       var json = {}
+        $.each(formData,function (i,it){
+            json["" + it.name + ""] = it.value.trim();
+        });
+        json["isActive"] = 1;
+        if(json["fullName"]===''){
+            $('#fullName').after('<span class="error-message" style="color:red">Họ và tên không được để trống</span>');
+        }
+
+        else if(json["phone"]===''){
+            $('#phone').after('<span class="error-message" style="color:red">Số điện thoại không được để trống</span>');
+
+        }
+        else if(json["phone"].length !== 10 || isNaN(Number(json["phone"]))){
+            $('#phone').after('<span class="error-message" style="color:red">Số điện thoại không hợp lệ</span>');
+
+        }
+        else if(json["email"]===''){
+            $('#email').after('<span class="error-message" style="color:red">Vui lòng nhập email của bạn</span>');
+        }
+        else {
+            addContract(json);
+        }
+    });
+    function addContract(data){
+        $.ajax({
+            url : "api/customer",
+            type: "POST",
+            data : JSON.stringify(data),
+            contentType : 'application/json',
+            success: function (response){
+                alert("Thêm Thành Công");
+            },
+            error : function (response){
+                if (response.responseJSON && response.responseJSON.message) {
+                    alert(response.responseJSON.message);
+                } else {
+                    alert("Có lỗi xảy ra! Vui lòng thử lại.");
+                }
+            }
+        });
+    }
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

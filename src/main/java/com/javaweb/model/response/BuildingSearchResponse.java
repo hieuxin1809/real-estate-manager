@@ -23,5 +23,5 @@ public class BuildingSearchResponse extends AbstractDTO {
     private Long rentPrice;
     private String serviceFee;
     private Double brokerageFee;
-
+	private String image;
 }

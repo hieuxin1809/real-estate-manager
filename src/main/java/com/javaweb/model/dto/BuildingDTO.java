@@ -19,10 +19,11 @@ public class BuildingDTO extends AbstractDTO{
     private String street;
     @NotBlank(message = "ward can be not bank")
     private String ward;
-    @NotBlank(message = "ditrict can be not blank")
+    @NotBlank(message = "district can be not blank")
     private String district;
-    @Min(value = 1,message = "nnumberOfBasement need larger than zero")
+    @Min(value = 1,message = "numberOfBasement need larger than zero")
     private Long numberOfBasement;
+    @NotNull(message = "floorArea can be not blank")
     private Long floorArea;
     private String level;
     @Size(min = 1,message = "typeCode is Required")
@@ -41,6 +42,7 @@ public class BuildingDTO extends AbstractDTO{
     private String note;
     private String rentArea;
     private String managerName;
+    @NotNull(message = "managerPhone can be not null")
     private String managerPhone;
     @NotNull(message = "rentPrice can be not null")
     private Long rentPrice;

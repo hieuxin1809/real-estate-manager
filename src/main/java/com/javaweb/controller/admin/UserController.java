@@ -54,6 +54,13 @@ public class UserController {
 	@RequestMapping(value = "/admin/profile-{username}", method = RequestMethod.GET)
 	public ModelAndView updateProfile(@PathVariable("username") String username, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/user/profile");
+		if(SecurityUtils.getAuthorities().contains(SystemConstant.STAFF_ROLE)){
+			String name = SecurityUtils.getPrincipal().getUsername();
+			if(!name.equals(username)){
+				mav.setViewName("error/404");
+				return mav;
+			}
+		}
 		UserDTO model = userService.findOneByUserName(username);
 		initMessageResponse(mav, request);
 		model.setRoleDTOs(roleService.getRoles());

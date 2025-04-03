@@ -12,9 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class UserEntity extends BaseEntity {
-
     private static final long serialVersionUID = -4988455421375043688L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,14 +38,11 @@ public class UserEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id", nullable = false))
     private List<RoleEntity> roles = new ArrayList<>();
 
-
     @OneToMany(mappedBy="userEntity", fetch = FetchType.LAZY)
     private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
-//
-//    @OneToMany(mappedBy="users", fetch = FetchType.LAZY)
-//    private List<UserRoleEntity> userRoleEntities = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "userEntity",fetch = FetchType.LAZY)
+    private List<AssignmentCustomerEntity> assignmentCustomerEntities = new ArrayList<>();
     @Override
     public Long getId() {
         return id;

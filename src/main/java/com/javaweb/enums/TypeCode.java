@@ -7,9 +7,6 @@ public enum TypeCode {
     TANG_TRET("Tầng Trệt"),
     NGUYEN_CAN("Nguyên Căn"),
     NOI_THAT("Nội Thất");
-
-
-
     private String typeName;
     TypeCode(String typeName) {
         this.typeName = typeName;

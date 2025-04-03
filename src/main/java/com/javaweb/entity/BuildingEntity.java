@@ -36,7 +36,7 @@ public class BuildingEntity extends BaseEntity {
     @Column(name = "district")
     private String district;
     @OneToMany(mappedBy = "buildingEntity", fetch = FetchType.LAZY)
-    private List<RentAreaEntity> rentAreas = new ArrayList<RentAreaEntity>();
+    private List<RentAreaEntity> rentAreas = new ArrayList<>();
     @OneToMany(mappedBy = "buildingEntity", fetch = FetchType.LAZY)
     private List<AssignmentBuildingEntity> assignmentBuildingEntities = new ArrayList<>();
     @Column(name = "structure")
@@ -69,4 +69,6 @@ public class BuildingEntity extends BaseEntity {
     private Long brokerageFee;
     @Column(name = "type")
     private String typeCode;
+    @Column(name = "image")
+    private String image;
 }

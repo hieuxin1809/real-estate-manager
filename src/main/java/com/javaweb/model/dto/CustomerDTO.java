@@ -1,68 +1,24 @@
 package com.javaweb.model.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+@Getter
+@Setter
 public class CustomerDTO extends AbstractDTO{
-    private String name;
-    private String managementStaff;
-    private String customerPhone;
+    @NotBlank(message = "fullname can be not blank")
+    private String fullName;
+    @NotBlank(message = "phone can be not blank")
+    private String phone;
+    @NotBlank(message = "email can be not blank")
     private String email;
+    @NotBlank(message = "demand can be not blank")
     private String demand;
+    @NotBlank(message = "status can be not blank")
     private String status;
+    private Integer isActive;
     private String companyName;
-
-    public String getCompanyName() {
-        return companyName;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getManagementStaff() {
-        return managementStaff;
-    }
-
-    public void setManagementStaff(String managementStaff) {
-        this.managementStaff = managementStaff;
-    }
-
-    public String getCustomerPhone() {
-        return customerPhone;
-    }
-
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getDemand() {
-        return demand;
-    }
-
-    public void setDemand(String demand) {
-        this.demand = demand;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
 }

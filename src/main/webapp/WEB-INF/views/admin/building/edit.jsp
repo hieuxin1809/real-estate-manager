@@ -215,6 +215,23 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-sm-3 no-padding-right">Hình đại diện</label>
+                            <form:input path="image" class="col-sm-3 control-label" type="file" id="uploadImage"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label"></label>
+                            <div class="col-sm-9">
+                                <c:if test="${not empty building.image}">
+                                    <c:set var="imagePath" value="/repository${building.image}"/>
+                                    <img src="${imagePath}" id="viewImage" width="300px" height="300px" style="margin-top: 50px">
+                                </c:if>
+                                <c:if test="${empty building.image}">
+                                    <img src="/img/not-found.png" id="viewImage" width="300px" height="300px">
+                                </c:if>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="col-xs-3 control-label"></label>
                             <div class="col-xs-9">
                                 <c:if test="${empty building.id}">
@@ -234,38 +251,80 @@
                         </div>
                         <form:hidden path="id"/>
                     </form:form>
-
                 </div>
-
             </div>
-
         </div><!-- /.page-content -->
     </div>
 </div><!-- /.main-content -->
 <script src="assets/js/jquery.2.1.1.min.js"></script>
 
 <script>
+    var imageBase64 = '';
+    var imageName = '';
     $('#btnAddOrUpdateBuilding').click(function(e){
-        e.preventDefault()
+        e.preventDefault();
+        $(".error-message").remove();
         var formData = $('#form-edit').serializeArray(); // mang cac doi tuong
         var json = {};
         var typeCode = [];
         $.each(formData , function(i , it){
             if(it.name != 'typeCode')json["" + it.name + ""] = it.value;
             else typeCode.push(it.value);
+            if ('' !== it.value && null != it.value) {
+                json['' + it.name + ''] = it.value;
+            }
+
+            if ('' !== imageBase64) {
+                json['imageBase64'] = imageBase64;
+                json['imageName'] = imageName;
+            }
         })
         json['typeCode'] = typeCode;
-        if(json['name'] == ''){
-            $('#name').after('<span style="color: red">Name Not Null</span>')
+        if(json['name'] === ''){
+            $('#name').after('<span class="error-message" style="color: red">Tên tòa nhà không được để trống</span>')
         }
-        if(json['district'] == ''){
-            $('#district').after('<span style="color: red">District Not Null</span>')
+        else if(json['district'] == ''){
+            $('#district').after('<span class="error-message" style="color: red">Quận không được để trống</span>')
+        }
+        else if(json['ward'] == ''){
+            $('#ward').after('<span class="error-message" style=" color: red">Phường không được để trống</span>')
+        }
+        else if(json['floorarea'] == ''){
+            $('#floorarea').after('<span class="error-message" style=" color: red">Diện tích sàn không được để trống</span>')
+        }
+        else if(json['rentprice'] == ''){
+            $('#rentprice').after('<span class="error-message" style=" color: red">Giá Thuê không được để trống</span>')
+        }
+        else if(json['rentarea'] == ''){
+            $('#rentarea').after('<span class="error-message" style=" color: red">Diện tích thuê không được để trống</span>')
+        }
+        else if(json['managerphone'] === ''){
+            $('#managerphone').after('<span class="error-message" style=" color: red">Số điện thoại của quản lý không hợp lệ</span>')
         }
         else {
             AddBuilding(json);
         }
-    })
+    });
+    $('#uploadImage').change(function (event) {
+        var reader = new FileReader();
+        var file = $(this)[0].files[0];
+        reader.onload = function(e){
+            imageBase64 = e.target.result;
+            imageName = file.name; // ten hinh khong dau, khoang cach. Dat theo format sau: a-b-c
+        };
+        reader.readAsDataURL(file);
+        openImage(this, "viewImage");
+    });
 
+    function openImage(input, imageView) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#' +imageView).attr('src', reader.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
     function AddBuilding(data){
         $.ajax({
             url:"/api/buildings",

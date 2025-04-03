@@ -80,9 +80,12 @@
 					<%--</a></li>--%>
 					<security:authorize access = "isAnonymous()">
 						<li class><a class="nav-link" href="<c:url value='/login'/>">Đăng nhập</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Đăng ký</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register">Đăng ký</a></li>
 					</security:authorize>
 					<security:authorize access = "isAuthenticated()">
+						<security:authorize access="hasAnyRole('MANAGER','STAFF')">
+							<li class="nav-item"><a class="nav-link" href="/admin/home"> ADMIN</a></li>
+						</security:authorize>
 						<li class="nav-item"><a class="nav-link" href="#"> Xin chào <%=SecurityUtils.getPrincipal().getUsername()%></a></li>
 						<li class="nav-item"><a class="nav-link" href="<c:url value='/logout'/>">Thoát</a></li>
 					</security:authorize>

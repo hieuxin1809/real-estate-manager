@@ -10,7 +10,9 @@ public enum District {
     QUAN_3("Quận 3"),
     QUAN_4("Quận 4"),
     QUAN_5("Quận 5"),
-    QUAN_TD("Quận Thủ Đức");
+    QUAN_TD("Quận Thủ Đức"),
+    QUAN_CAUGIAY("Quận Câù Giấy"),
+    QUAN_HOANKIEM("Quận Hoàn Kiếm");
 
 
     private String districtName;

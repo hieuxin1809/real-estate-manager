@@ -24,7 +24,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     private void sqlJoin(BuildingSearchBuilder builder, StringBuilder join) {
         Long staffId = builder.getStaffId();
         if(StringUtils.check(staffId)) {
-            join.append(" join assignmentbuilding ab on b.id = ab.buidingid ");
+            join.append(" join assignmentbuilding ab on b.id = ab.buildingid ");
         }
         Long rentAreaFrom = builder.getAreaFrom();
         Long rentAreaTo = builder.getAreaTo();
@@ -42,10 +42,10 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
                     Object value = it.get(builder);
                     if(value != null) {
                         if(it.getType().getName().equals("java.lang.String")) {
-                            where.append(" And b." + fileName + " Like'%" + value + "%'");
+                            where.append(" And b.").append(fileName).append(" Like'%").append(value).append("%'");
                         }
-                        else if(it.getType().getName().equals("java.lang.Long") || it.getType().equals("java.lang.Integer")) {
-                            where.append(" And b." + fileName + " = " + value );
+                        else {
+                            where.append(" And b.").append(fileName).append(" = ").append(value);
                         }
                     }
                 }
@@ -57,29 +57,32 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
     private void sqlWhereSpecial(BuildingSearchBuilder builder, StringBuilder where) {
         Long staffId = builder.getStaffId();
         if (StringUtils.check(staffId)) {
-            where.append(" and ab.staffid =  " + staffId);
+            where.append(" and ab.staffid =  ").append(staffId);
         }
         Long rentAreaFrom = builder.getAreaFrom();
         Long rentAreaTo = builder.getAreaTo();
         if (StringUtils.check(rentAreaFrom)) {
-            where.append(" and rt.value >= " + rentAreaFrom);
+            where.append(" and rt.value >= ").append(rentAreaFrom);
             System.out.println("hello");
         }
         if (StringUtils.check(rentAreaTo)) {
-            where.append(" and rt.value <= " + rentAreaTo);
+            where.append(" and rt.value <= ").append(rentAreaTo);
         }
         Long rentPriceFrom = builder.getRentPriceFrom();
         Long rentPriceTo = builder.getRentPriceTo();
         if (StringUtils.check(rentPriceFrom)) {
-            where.append(" and b.rentprice >= " + rentPriceFrom);
+            where.append(" and b.rentprice >= ").append(rentPriceFrom);
         }
         if (StringUtils.check(rentPriceTo)) {
-            where.append(" and b.rentprice <= " + rentPriceTo);
+            where.append(" and b.rentprice <= ").append(rentPriceTo);
         }
         List<String> typeCode = builder.getTypeCode();
         if (typeCode != null && !typeCode.isEmpty()) {
             // Java 8
-            where.append(" and b.type in( " + typeCode.stream().map(i -> "'" + i + "'").collect(Collectors.joining(",")) + ")");
+            String code = typeCode.stream()
+                    .map(i -> "'%" + i + "%'")
+                    .collect(Collectors.joining(" OR b.type LIKE "));
+            where.append(" AND (b.type LIKE ").append(code).append(")");
         }
     }
 

@@ -19,6 +19,4 @@ public class UserDTO extends AbstractDTO {
     private String roleName;
     private String roleCode;
     private Map<String,String> roleDTOs = new HashMap<>();
-
-
 }

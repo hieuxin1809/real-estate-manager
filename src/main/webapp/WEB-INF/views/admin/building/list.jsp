@@ -29,10 +29,6 @@
             <div class="page-header">
                 <h1>
                     Danh Sách Tòa Nhà
-                    <small>
-                        <i class="ace-icon fa fa-angle-double-right"></i>
-                        overview &amp; stats
-                    </small>
                 </h1>
             </div><!-- /.page-header -->
             <div class="row">
@@ -129,13 +125,16 @@
                                         <label >SDT Quản Lý</label>
                                         <form:input path="managerPhoneNumber" class="form-control" />
                                     </div>
-                                    <div class="col-xs-2">
-                                        <label>Tên Nhân Viên</label>
-                                        <form:select path="staffId" cssClass="form-control">
-                                        <option value="">--Chọn Nhân Viên--</option>
-                                            <form:options items="${staffs}"></form:options>
-                                        </form:select>
-                                    </div>
+                                    <security:authorize access="hasRole('MANAGER')">
+                                        <div class="col-xs-2">
+                                            <label>Tên Nhân Viên</label>
+                                            <form:select path="staffId" cssClass="form-control">
+                                            <option value="">--Chọn Nhân Viên--</option>
+                                                <form:options items="${staffs}"></form:options>
+                                            </form:select>
+                                        </div>
+                                    </security:authorize>
+
                                 </div>
                                 <div class="col-xs-12">
                                     <div class="col-xs-6">
@@ -162,10 +161,11 @@
                             <i class="ace-icon fa fa-home"></i>
                         </button>
                     </a>
-
-                    <button class="btn btn-app btn-danger btn-sm" title="Xóa Tòa Nhà" id = "btn-deleteBuilding">
-                        <i class="ace-icon fa fa-trash-o bigger-200"></i>
-                    </button>
+                    <security:authorize access="hasRole('MANAGER')">
+                        <button class="btn btn-app btn-danger btn-sm" title="Xóa Tòa Nhà" id = "btn-deleteBuilding">
+                            <i class="ace-icon fa fa-trash-o bigger-200"></i>
+                        </button>
+                    </security:authorize>
                 </div>
 
             </div>
@@ -217,32 +217,28 @@
 
                             <td>
                                 <div class="hidden-sm hidden-xs btn-group">
+                                <security:authorize access="hasRole('MANAGER')">
                                     <button class="btn btn-xs btn-success" onclick="assingmentBuilding(${item.id})" title="Giao Tòa Nhà">
                                         <i class="ace-icon fa fa-users "></i>
                                     </button>
+                                </security:authorize>
                                     <a class="btn btn-xs btn-info" title="Sửa Tòa Nhà" href="/admin/building-edit-${item.id}">
                                         <i class="ace-icon fa fa-pencil bigger-120"></i>
                                     </a>
-<%--                                    <button class="btn btn-xs btn-info" title="Sửa Tòa Nhà" href="/admin/building-edit-${item.id}" >--%>
-<%--                                        <i class="ace-icon fa fa-pencil bigger-120"></i>--%>
-<%--                                    </button>--%>
-
-                                    <button class="btn btn-xs btn-danger">
+                                <security:authorize access="hasRole('MANAGER')">
+                                    <button class="btn btn-xs btn-danger" title="Xóa Tòa Nhà"
+                                        onclick="deleteBuilding(${item.id})">
                                         <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                     </button>
+                                </security:authorize>
                                 </div>
                             </td>
                         </tr>
                         </c:forEach>
-
-
-
                         </tbody>
                     </table>
                 </div><!-- /.span -->
             </div>
-
-
         </div><!-- /.page-content -->
     </div>
 </div><!-- /.main-content -->
@@ -325,7 +321,6 @@
             return $(this).val();
         }).get();
         json['staffIds'] = staffIds;
-        console.log('sfd');
         if(json['buildingId'] != '' ){
             updateAssingment(json);
         }
@@ -349,8 +344,6 @@
         }
 
     });
-
-
     // begin Ajax
     function deleteBuilding(data){
         //console.log("http://localhost:8084/api/building/" + data)
@@ -373,7 +366,7 @@
     }
     function updateAssingment(data){
         $.ajax({
-            url:"/api/assingments/", // url cần gửi yêu cầu
+            url:"/api/assingments/building", // url cần gửi yêu cầu
             type: "POST",
             data : JSON.stringify(data), // convert du lieu tu Object trong js qua cho thanh json
             dataType : "JSON", // kieu du lieu server tra ra
@@ -391,7 +384,20 @@
         })
     }
     // end ajax
+    // phần checkbox
+    $(document).ready(function() {
+        // Chọn tất cả checkbox khi checkbox ở thead được bấm
+        $('thead input[type="checkbox"]').change(function() {
+            let isChecked = $(this).prop('checked');
+            $('tbody input[type="checkbox"]').prop('checked', isChecked);
+        });
 
+        // Kiểm tra khi checkbox trong tbody được thay đổi
+        $('tbody input[type="checkbox"]').change(function() {
+            let allChecked = $('tbody input[type="checkbox"]').length === $('tbody input[type="checkbox"]:checked').length;
+            $('thead input[type="checkbox"]').prop('checked', allChecked);
+        });
+    });
 </script>
 </body>
 </html>

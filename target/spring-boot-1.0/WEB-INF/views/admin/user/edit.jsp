@@ -108,7 +108,8 @@
             if (roleCode != '') {
                 updateUser(dataArray, $('#userId').val());
             } else {
-                window.location.href = "<c:url value='/admin/user-edit-"+userId+"?message=role_require'/>";
+                alert("yêu cầu chức vụ của user");
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+userId+"?message=role_require'/>";--%>
             }
         }
         else {
@@ -138,10 +139,13 @@
             data: JSON.stringify(data),
             success: function (res) {
                 $('#loading_image').hide();
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=insert_success'/>";
+                alert("Đã thêm thành công user")
+                location.reload();
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=insert_success'/>";--%>
             },
             error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=error_system'/>";
+                alert("Có lỗi xảy ra");
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=error_system'/>";--%>
             }
         });
     }
@@ -154,10 +158,13 @@
             contentType: 'application/json',
             data: JSON.stringify(data),
             success: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=update_success'/>";
+                alert("Đã thay đổi thành công user")
+                location.reload();
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=update_success'/>";--%>
             },
             error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";
+                alert("Có lỗi xảy ra");
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";--%>
             }
         });
     }
@@ -169,10 +176,13 @@
             dataType: 'json',
             success: function (res) {
                 $('#loading_image').hide();
-                window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=reset_password_success'/>";
+                alert("Đã thay đổi mật khẩu thành công user")
+                location.reload();
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+res.id+"?message=reset_password_success'/>";--%>
             },
             error: function (res) {
-                window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";
+                alert("Có lỗi xảy ra");
+                <%--window.location.href = "<c:url value='/admin/user-edit-"+id+"?message=error_system'/>";--%>
             }
         });
     }

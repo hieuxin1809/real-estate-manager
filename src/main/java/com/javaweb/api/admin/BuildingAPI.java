@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/buildings")
 public class BuildingAPI {
-
     @Autowired
     private UserRepository userRepository;
     @Autowired
@@ -59,9 +58,8 @@ public class BuildingAPI {
         }catch(Exception e){
             ResponseDTO responseDTO = new ResponseDTO();
             responseDTO.setMessage(e.getMessage());
-            ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDTO);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDTO);
         }
-        return  null;
     }
     // Xoa
     @DeleteMapping("/{ids}")
@@ -77,19 +75,16 @@ public class BuildingAPI {
             buildingService.deleteById(ids);
             responseDTO.setMessage("Buildings deleted successfully");
             return ResponseEntity.ok().body(responseDTO);
-            //service xu ly
         }
     }
     // Load Danh Sach Giao
     @GetMapping("/{buildingId}/staffs")
-    public ResponseEntity<?> loadStaff(@PathVariable Long buildingId) {
+    public ResponseEntity<?> loadStaffBuilding(@PathVariable Long buildingId) {
         // xuong service
-        List<StaffResponseDTO> staffResponseDTOS = userService.LoadStaff(buildingId);
+        List<StaffResponseDTO> staffResponseDTOS = userService.LoadStaffBuilding(buildingId);
         ResponseDTO responseDTO = new ResponseDTO();
         responseDTO.setData(staffResponseDTOS);
         responseDTO.setMessage("success");
         return ResponseEntity.ok().body(responseDTO);
     }
-    //Giao
-
 }

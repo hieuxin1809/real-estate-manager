@@ -1,5 +1,6 @@
 package com.javaweb.service;
 
+import com.javaweb.entity.CustomerEntity;
 import com.javaweb.model.dto.PasswordDTO;
 import com.javaweb.model.dto.UserDTO;
 import com.javaweb.exception.ServiceException;
@@ -25,5 +26,7 @@ public interface IUserService {
     List<UserDTO> getAllUsers(Pageable pageable);
     int countTotalItems();
     Map<Long , String> getListStaff();
-    List<StaffResponseDTO> LoadStaff(Long id);
+    List<StaffResponseDTO> LoadStaffBuilding(Long id);
+    List<StaffResponseDTO> LoadStaffCustomer(Long id);
+
 }

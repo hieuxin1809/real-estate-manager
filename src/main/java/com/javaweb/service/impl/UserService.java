@@ -2,21 +2,18 @@ package com.javaweb.service.impl;
 
 import com.javaweb.constant.SystemConstant;
 import com.javaweb.converter.UserConverter;
-import com.javaweb.entity.BuildingEntity;
+import com.javaweb.entity.*;
 import com.javaweb.model.dto.PasswordDTO;
 import com.javaweb.model.dto.UserDTO;
-import com.javaweb.entity.RoleEntity;
-import com.javaweb.entity.UserEntity;
 import com.javaweb.exception.ServiceException;
 import com.javaweb.model.response.StaffResponseDTO;
-import com.javaweb.repository.BuildingRepository;
-import com.javaweb.repository.RoleRepository;
-import com.javaweb.repository.UserRepository;
+import com.javaweb.repository.*;
 import com.javaweb.service.IUserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -41,12 +38,18 @@ public class UserService implements IUserService {
     private UserConverter userConverter;
     @Autowired
     private BuildingRepository buildingRepository;
-
-
+    @Autowired
+    private CustomerRepository customerRepository;
+    @Autowired
+    private AssignmentCustomerRepository assignmentCustomerRepository;
 
     @Override
     public UserDTO findOneByUserNameAndStatus(String name, int status) {
-        return userConverter.convertToDto(userRepository.findOneByUserNameAndStatus(name, status));
+        UserEntity userEntity = userRepository.findOneByUserNameAndStatus(name, status);
+        if(userEntity == null) {
+            throw new UsernameNotFoundException("not found " + name);
+        }
+        return userConverter.convertToDto(userEntity);
     }
 
     @Override
@@ -97,7 +100,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<StaffResponseDTO> LoadStaff(Long id) {
+    public List<StaffResponseDTO> LoadStaffBuilding(Long id) {
         // lay tat ca nhan vien co giao va ko giao
         List<UserEntity> staffs = userRepository.findByStatusAndRoles_Code(1 , "STAFF");
         BuildingEntity buildingEntity = buildingRepository.findById(id).get();
@@ -116,8 +119,24 @@ public class UserService implements IUserService {
         }
         return staffResponseDTOS;
     }
-
-
+    @Override
+    public List<StaffResponseDTO> LoadStaffCustomer(Long id) {
+        List<UserEntity> staffs = userRepository.findByStatusAndRoles_Code(1 , "STAFF");
+        CustomerEntity customerEntity = customerRepository.findById(id).get();
+        List<StaffResponseDTO> staffResponseDTOS = new ArrayList<>();
+        List<UserEntity> assignStaff = userRepository.findByAssignmentCustomerEntities_Customer_Id(id);
+        for(UserEntity staff : staffs) {
+            StaffResponseDTO staffResponseDTO = new StaffResponseDTO();
+            staffResponseDTO.setStaffId(staff.getId());
+            staffResponseDTO.setFullName(staff.getFullName());
+            if(assignStaff.contains(staff)){
+                staffResponseDTO.setChecked("checked");
+            }
+            else staffResponseDTO.setChecked("");
+            staffResponseDTOS.add(staffResponseDTO);
+        }
+        return staffResponseDTOS;
+    }
     @Override
     public int getTotalItems(String searchValue) {
         int totalItem = 0;
@@ -154,7 +173,12 @@ public class UserService implements IUserService {
         UserEntity userEntity = userConverter.convertToEntity(newUser);
         userEntity.setRoles(Stream.of(role).collect(Collectors.toList()));
         userEntity.setStatus(1);
-        userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+        if(newUser.getPassword() == null){
+            userEntity.setPassword(passwordEncoder.encode(SystemConstant.PASSWORD_DEFAULT));
+        }
+        else{
+            userEntity.setPassword(passwordEncoder.encode(newUser.getPassword()));
+        }
         return userConverter.convertToDto(userRepository.save(userEntity));
     }
 

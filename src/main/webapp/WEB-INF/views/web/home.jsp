@@ -14,67 +14,6 @@
 <body>
 <div class="page-wrapper">
     <div class="">
-        <!-- HEADER -->
-        <%--<header>--%>
-            <%--<!-- Begin menu  -->--%>
-            <%--<div class="p-4">--%>
-                <%--<div class="row navbar">--%>
-                    <%--<div class="col-12 col-md-3">--%>
-                        <%--<div class="logo">--%>
-                            <%--<a href="">--%>
-                                <%--<img src="https://bizweb.dktcdn.net/100/328/362/themes/894751/assets/logo.png?1676257083798"--%>
-                                     <%--alt="">--%>
-                            <%--</a>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="col-12 col-md-6">--%>
-                        <%--<div class="item-menu">--%>
-                            <%--<div class="nav nav1">--%>
-                                <%--<div class="nav-item p-2">--%>
-                                    <%--<a class="nav-item-link" href="">--%>
-                                        <%--<span style="color: var(--primary-color);">Trang chủ</span>--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="nav-item p-2">--%>
-                                    <%--<a href='<c:url value='/gioi-thieu'/>'>--%>
-                                        <%--<span>Giới thiệu</span>--%>
-                                        <%--&lt;%&ndash;<span style="color: var(--primary-color);">Giới thiệu</span>&ndash;%&gt;--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="nav-item p-2">--%>
-                                    <%--&lt;%&ndash;<a class="nav-item-link" href="./Duan.html">&ndash;%&gt;--%>
-                                        <%--<a href='<c:url value='/san-pham'/>'>--%>
-                                        <%--<span>Sản phẩm</span>--%>
-                                        <%--&lt;%&ndash;<span style="color: var(--primary-color);">Sản phẩm</span>&ndash;%&gt;--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="nav-item p-2">--%>
-                                    <%--&lt;%&ndash;<a class="nav-item-link" href="./TinTuc.html">&ndash;%&gt;--%>
-                                        <%--<a href='<c:url value='/tin-tuc'/>'>--%>
-                                        <%--<span>Tin tức</span>--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-                                <%--<div class="nav-item p-2">--%>
-                                    <%--<a href='<c:url value='/lien-he'/>'>--%>
-                                        <%--<span>Liên hệ</span>--%>
-                                    <%--</a>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                    <%--<div class="nav-login col-12 col-md-3">--%>
-                        <%--<button class="btn btn-primary px-4">--%>
-                            <%--<a style="color:#fff;" href="/login">Đăng nhập</a>--%>
-                        <%--</button>--%>
-                        <%--<button class="btn btn-primary px-4">--%>
-                            <%--Đăng ký--%>
-                        <%--</button>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-            <%--<!-- End menu  -->--%>
-        <%--</header>--%>
-        <!-- SLIDESHOW -->
         <div class="container-fluid">
             <div class="p-0">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -97,18 +36,11 @@
                             <div class="img-slideshow"><img src="https://media.tapchitaichinh.vn/images/upload/hoangthuviet/04202019/bat-dong-san.jpg"
                                                             alt=""></div>
                             <div class="carousel-caption d-none d-md-block">
-                                <!-- <h5>Cho thuê căn hộ chung cư Saigon Mia</h5>
-                                <p>. Dự án cho thuê căn hộ chung cư Saigon Mia là dự án được sử dụng dành cho các
-                                    khách hàng thành đạt với sở thích và mong muốn được sống trong môi trường có
-                                    nguồn không khí trong lành</p> -->
                             </div>
                         </div>
                         <div class="carousel-item">
                             <img src="https://richnguyen.vn/wp-content/uploads/2020/08/buc-anh-bat-dong-san-dep-2.jpg" alt="...">
                             <div class="carousel-caption d-none d-md-block">
-                                <!-- <h5>Dự án Chung cư Hòa Khánh Liên Chiểu Đà Nẵng</h5>
-                                <p>Dự án xây dựng nhằm đáp ứng nhu cầu về nhà ở cho cán bộ, công nhân viên chức, các
-                                    đối tượng chính sách xã hội có thu nhập thấp</p> -->
                             </div>
                         </div>
                     </div>
@@ -122,7 +54,7 @@
                     <div class="col-12 col-md-3">
                         <div class="search-item">
                             <p class="search-text">Chọn tỉnh/thành phố</p>
-                            <select class="search-option" name="search-option" id="search-option">
+                            <select class="search-option" name="search-option" id="search-option1">
                                 <option value>- Tỉnh/thành phố</option>
                                 <option value="">TP.Hà Nội</option>
                             </select>
@@ -131,7 +63,7 @@
                     <div class="col-12 col-md-3">
                         <div class="search-item">
                             <p class="search-text">Chọn quận/huyện</p>
-                            <select class="search-option" name="search-option" id="search-option">
+                            <select class="search-option" name="search-option" id="search-option2">
                                 <option value>--Chọn quận--</option>
                                 <c:forEach var="item" items="${districts}">
                                     <option value="">${item.value}</option>>
@@ -143,7 +75,7 @@
                     <div class="col-12 col-md-3">
                         <div class="search-item">
                             <p class="search-text">Chọn loại bất động sản</p>
-                            <select class="search-option" name="search-option" id="search-option">
+                            <select class="search-option" name="search-option" id="search-option3">
                                 <option value>- Loại bất động sản</option>
                             </select>
                         </div>
@@ -168,127 +100,56 @@
                             phố khác hot hiện tại</span>
                 </div>
             </div>
-            <div class="content-product ">
+            <div class="content-product">
                 <div class="container">
                     <div class="content1 justify-content-center">
                         <div class="row">
-                            <div class="col-12 col-md-4">
+                            <c:forEach var="building" items="${buildings}">
+                                <div class="col-12 col-md-4">
                                 <div class="product1 vip">
-                                    <div class="product1-image new"></div>
+                                    <div class="product1-image new"
+                                        style="background: url('${pageContext.request.contextPath}${building.image}') center / cover no-repeat;
+                                        width: 100%;
+                                        height: 15.525rem;">
+                                        </div>
+                                    <div class="product1-conntent">
+                                        <div class="product1-conntent-header">
+                                            <a href="">${building.name}</a>
+                                        </div>
+                                        <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất
+                                                Thuyết đang
+                                                trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà trong năm
+                                                2018.
+                                                Khách
+                                                hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng
+                                                như
+                                                thưởng
+                                                ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.</span>
+                                        <ul class="product1-conntent-list">
+                                            <li class="product1-conntent-item">
+                                                <i class="fa-solid fa-location-dot"></i>
+                                                <span>${building.street},${building.ward}</span>
+                                            </li>
+                                            <li class="product1-conntent-item">
+                                                <i class="fa-solid fa-building"></i>
+                                                <span>Loại BĐS: Chung cư</span>
+                                            </li>
+                                            <li class="product1-conntent-item">
+                                                <i class="fa-solid fa-earth-asia"></i>
+                                                <span>Diện tích: 78m2 - 146m2</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product1-footer">
+                                        <span class="product1-footer-cost">${building.rentPrice} tr/tháng</span>
+                                        <button class="product1-footer-detail"><a href="./ChiTiet.html"
+                                                                                  style="color:#fff">Xem chi
+                                            tiết</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                            </c:forEach>
 
-                                    <div class="product1-conntent">
-                                        <div class="product1-conntent-header">
-                                            <a href="">Căn hộ chung cư tại Sky Park Residence</a>
-                                        </div>
-                                        <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất
-                                                Thuyết đang
-                                                trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà trong năm
-                                                2018.
-                                                Khách
-                                                hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng
-                                                như
-                                                thưởng
-                                                ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.</span>
-                                        <ul class="product1-conntent-list">
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-location-dot"></i>
-                                                <span>Số 03 Tôn Thất thuyết</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-building"></i>
-                                                <span>Loại BĐS: Chung cư</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-earth-asia"></i>
-                                                <span>Diện tích: 78m2 - 146m2</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="product1-footer">
-                                        <span class="product1-footer-cost">2,5 Tỷ</span>
-                                        <button class="product1-footer-detail"><a href="./ChiTiet.html"
-                                                                                  style="color:#fff">Xem chi
-                                            tiết</a></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="product1 hot">
-                                    <div class="product2-image new"></div>
-                                    <div class="product1-conntent">
-                                        <div class="product1-conntent-header">
-                                            <a href="">Căn hộ chung cư tại Sky Park Residence</a>
-                                        </div>
-                                        <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất
-                                                Thuyết đang
-                                                trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà trong năm
-                                                2018.
-                                                Khách
-                                                hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng
-                                                như
-                                                thưởng
-                                                ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.</span>
-                                        <ul class="product1-conntent-list">
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-location-dot"></i>
-                                                <span>Số 03 Tôn Thất thuyết</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-building"></i>
-                                                <span>Loại BĐS: Chung cư</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-earth-asia"></i>
-                                                <span>Diện tích: 78m2 - 146m2</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="product1-footer">
-                                        <span class="product1-footer-cost">2,5 Tỷ</span>
-                                        <button class="product1-footer-detail"><a href="./ChiTiet.html"
-                                                                                  style="color:#fff">Xem chi
-                                            tiết</a></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4">
-                                <div class="product1 vip">
-                                    <div class="product3-image new"></div>
-                                    <div class="product1-conntent">
-                                        <div class="product1-conntent-header">
-                                            <a href="">Căn hộ chung cư tại Sky Park Residence</a>
-                                        </div>
-                                        <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất
-                                                Thuyết đang trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà
-                                                trong năm
-                                                2018. Khách
-                                                hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng
-                                                như
-                                                thưởng
-                                                ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.</span>
-                                        <ul class="product1-conntent-list">
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-location-dot"></i>
-                                                <span>Số 03 Tôn Thất thuyết</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-building"></i>
-                                                <span>Loại BĐS: Chung cư</span>
-                                            </li>
-                                            <li class="product1-conntent-item">
-                                                <i class="fa-solid fa-earth-asia"></i>
-                                                <span>Diện tích: 78m2 - 146m2</span>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="product1-footer">
-                                        <span class="product1-footer-cost">2,5 Tỷ</span>
-                                        <button class="product1-footer-detail"><a href="./ChiTiet.html"
-                                                                                  style="color:#fff">Xem chi
-                                            tiết</a></button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -789,7 +650,7 @@
                                               action="//dkt.us13.list-manage.com/subscribe/post?u=0bafe4be7e17843051883e746&amp;id=3bdd6e9e3b"
                                               method="post" id="mc-embedded-subscribe-form"
                                               name="mc-embedded-subscribe-form" target="_blank">
-                                            <input type="email" value="" placeholder="Nhập địa chỉ email của bạn.."
+                                            <input type="text" value="" placeholder="Nhập địa chỉ email của bạn.."
                                                    name="EMAIL" id="mail"
                                                    aria-label="general.newsletter_form.newsletter_email">
                                             <button class="button-subscribe button-45 subscribe" name="subscribe"
@@ -800,7 +661,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -823,7 +683,6 @@
                 </div>
             </div>
         </div>
-
         <footer class="footer">
             <div class="container-fluid">
                 <div class="top-footer text-center mt-0">
@@ -842,7 +701,7 @@
                                     </div>
                                     <div class="content-center-footer">
                                         <p class="mb-1 mt-3">Trụ sở chính</p>
-                                        <p class="desc-footer">Số 46 Man Thiện, TP Thủ Đức, TP HCM</p>
+                                        <p class="desc-footer">Số 3 đường cầu giấy,Thành Phố Hà Nội</p>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 text-center">
@@ -851,7 +710,7 @@
                                     </div>
                                     <div class="content-center-footer">
                                         <p class="mb-1 mt-3">Hotline</p>
-                                        <p class="desc-footer"><a class="a-text" href="#">098828</a></p>
+                                        <p class="desc-footer"><a class="a-text" href="#">0988348121</a></p>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-4 text-center">
@@ -860,7 +719,7 @@
                                     </div>
                                     <div class="content-center-footer">
                                         <p class="mb-1 mt-3">Email</p>
-                                        <p class="desc-footer"><a class="a-text" href="#">vsh@gmail.com</a>
+                                        <p class="desc-footer"><a class="a-text" href="#">trunghieu6bttt@gmail.com</a>
                                         </p>
                                     </div>
                                 </div>
@@ -924,104 +783,9 @@
     </div>
 </div>
 
-<section class="vh-100 gradient-custom form-register">
-    <div class="container">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card text-white" style="border-radius: 1rem; background-color: #35bf76;">
-                    <div class="card-body p-2 px-5 text-center">
-                        <div class="md-5 md-4 mt-4 pb-2">
-                            <h2 class="fw-bold mb-2 text-uppercase">Create an account</h2>
-                            <p class="text-white-50 mb-2">Please enter your Information</p>
-
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="form3Example1m">First name</label>
-                                        <input type="text" id="form3Example1m"
-                                               class="form-control form-control-lg" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <div class="form-outline">
-                                        <label class="form-label" for="form3Example1n">Last name</label>
-                                        <input type="text" id="form3Example1n"
-                                               class="form-control form-control-lg" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-                                <h6 class="mb-0 me-4">Gender: </h6>
-
-                                <div class="form-check form-check-inline mb-0 me-4">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="femaleGender" value="option1" />
-                                    <label class="form-check-label" for="femaleGender">Female</label>
-                                </div>
-
-                                <div class="form-check form-check-inline mb-0 me-4">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="maleGender" value="option2" />
-                                    <label class="form-check-label" for="maleGender">Male</label>
-                                </div>
-
-                                <div class="form-check form-check-inline mb-0">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                           id="otherGender" value="option3" />
-                                    <label class="form-check-label" for="otherGender">Other</label>
-                                </div>
-                            </div>
-
-                            <div class="form-outline form-white mb-2">
-                                <label class="form-label" for="typePasswordX">Username</label>
-                                <input type="email" id="typePasswordX" class="form-control form-control-lg" />
-                            </div>
-
-                            <div class="form-outline form-white mb-2">
-                                <label class="form-label" for="typeEmailX">Password</label>
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                            </div>
-
-                            <div class="form-outline form-white mb-2">
-                                <label class="form-label" for="typeEmailX">Repeat your password</label>
-                                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                            </div>
-
-                            <div class="form-check d-flex justify-content-center mb-2">
-                                <input class="form-check-input me-2" type="checkbox" value=""
-                                       id="form2Example3cg" />
-                                <label class="form-check-label">
-                                    I agree all statements in <a href="#!" class="text-body"><u
-                                        style="color: white ;">Terms of
-                                    service</u></a>
-                                </label>
-                            </div>
+</body>
 
 
-                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
-
-                            <div class="d-flex justify-content-center text-center mt-2 pt-1">
-                                <a href="#!" class="login-extension text-white"><i
-                                        class="fab fa-facebook-f fa-lg"></i></a>
-                                <a href="#!" class="login-extension text-white"><i
-                                        class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                                <a href="#!" class="login-extension text-white"><i
-                                        class="fab fa-google fa-lg"></i></a>
-                            </div>
-
-                            <p class="text-center text-muted mt-2 mb-0">Have already an account? <a href="#!"
-                                                                                                    class="fw-bold text-body"><u style="color: white ;">Login here</u></a></p>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
