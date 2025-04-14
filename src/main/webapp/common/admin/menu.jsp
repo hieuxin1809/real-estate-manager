@@ -62,9 +62,13 @@
     <ul class="nav nav-list">
         <li class="">
             <a href="#" class="dropdown-toggle">
-                <i class="menu-icon fa fas fa-users"></i>
+    <!-- Thay i bằng SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="20" fill="currentColor" style="margin-right: 10px;" viewBox="0 0 20 20">
+                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.6 0-10.8 1.8-10.8 5.4V22h21.6v-2.1c0-3.6-7.2-5.4-10.8-5.4z"/>
+                </svg>
                 <span class="menu-text">Quản Lý Tài Khoản</span>
             </a>
+
             <b class="arrow"></b>
             <ul class="submenu">
                 <li class="">

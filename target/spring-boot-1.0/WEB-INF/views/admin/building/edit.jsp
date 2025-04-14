@@ -143,6 +143,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-xs-3 control-label">Số Phòng Ngủ</label>
+                            <div class="col-xs-9">
+                                <form:input path="bedRoom" cssClass="form-control"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-xs-3 control-label">Phí Ngoài Giờ</label>
                             <div class="col-xs-9">
                                 <form:input path="overtimeFee" cssClass="form-control"/>
@@ -334,11 +340,11 @@
             contentType : 'application/json',
             success : function(response){
                 console.log('success');
-                alert("Thao Tac Thanh Cong");
+                alert("Thêm Thành Công");
                 window.location.href='<c:url value="/admin/building-list" />';
             },
             error : function(response){
-                console.log('failed')
+                console.log('Thêm Thất Bại')
                 alert(response.responseJSON);
             }
         })

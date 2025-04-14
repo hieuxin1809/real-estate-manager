@@ -47,8 +47,6 @@ public class BuildingController {
             params.setStaffId(staffId);
         }
         List<BuildingSearchResponse> results = buildingService.findAll(params);
-      //  params.setListResult(results);
-       // params.setTotalItems(buildingService.co);
         mav.addObject("staffs" , userService.getListStaff());
         mav.addObject("districts" , District.getdistrict());
         mav.addObject("typeCode" , TypeCode.getType());

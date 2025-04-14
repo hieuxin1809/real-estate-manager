@@ -325,7 +325,7 @@
             updateAssingment(json);
         }
         else{
-            alert("BuildingId Not Null");
+
         }
 
     });
@@ -355,7 +355,7 @@
             //	contentType : 'application/json',
             success : function(response){
                 console.log('success');
-                alert(response.message);
+                alert("Xóa Thành Công");
                 window.location.href='<c:url value="/admin/building-list" />'
             },
             error : function(response){
@@ -373,12 +373,12 @@
             contentType : 'application/json', // chỉ định dữ liệu được gửi đi ở dạng json
             success : function(response){ // hàm callback khi thành công
                 console.log('success');
-                alert("Assingment Success");
+                alert("Giao Thành Công");
                 window.location.href='<c:url value="/admin/building-list" />'
             },
             error : function(response){
                 console.log('failed');
-                alert("Assingment Failed");
+                alert("Giao Thất Bại");
                 window.location.href='<c:url value="/admin/building-list" />'
             }
         })

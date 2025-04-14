@@ -116,15 +116,7 @@
                                         <div class="product1-conntent-header">
                                             <a href="">${building.name}</a>
                                         </div>
-                                        <span class="product1-conntent-title">Dự án Sky Park Residence số 3 Tôn Thất
-                                                Thuyết đang
-                                                trong quá trình hoàn thiện để đáp ứng tiến độ bàn giao nhà trong năm
-                                                2018.
-                                                Khách
-                                                hàng có thể thăm quan và giám sát trực tiếp chất lương công trình cũng
-                                                như
-                                                thưởng
-                                                ngoạn tầm view tuyệt đẹp ra hai công viên lớn nhất quận Cầu Giấy.</span>
+                                        <span class="product1-conntent-title">${building.description}</span>
                                         <ul class="product1-conntent-list">
                                             <li class="product1-conntent-item">
                                                 <i class="fa-solid fa-location-dot"></i>
@@ -136,7 +128,7 @@
                                             </li>
                                             <li class="product1-conntent-item">
                                                 <i class="fa-solid fa-earth-asia"></i>
-                                                <span>Diện tích: 78m2 - 146m2</span>
+                                                <span>Diện tích: ${building.floorArea}m2</span>
                                             </li>
                                         </ul>
                                     </div>

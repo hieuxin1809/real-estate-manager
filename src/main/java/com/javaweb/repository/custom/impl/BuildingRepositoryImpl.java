@@ -88,7 +88,7 @@ public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
 
     @Override
     public List<BuildingEntity> findAll(BuildingSearchBuilder builder) {
-        StringBuilder sql = new StringBuilder("select b.* from Building b ");
+        StringBuilder sql = new StringBuilder("select b.* from building b ");
         sqlJoin(builder, sql);
         StringBuilder where = new StringBuilder(" where 1=1 ");
         sqlWhereNomal(builder, where);

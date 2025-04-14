@@ -71,4 +71,8 @@ public class BuildingEntity extends BaseEntity {
     private String typeCode;
     @Column(name = "image")
     private String image;
+    @Column(name = "bedroom")
+    private Long bedroom;
+    @Column(name = "description")
+    private String description;
 }

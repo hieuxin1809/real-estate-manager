@@ -7,11 +7,9 @@ import com.javaweb.entity.AssignmentBuildingEntity;
 import com.javaweb.entity.BuildingEntity;
 import com.javaweb.entity.RentAreaEntity;
 import com.javaweb.entity.UserEntity;
-import com.javaweb.enums.District;
-import com.javaweb.enums.TypeCode;
 import com.javaweb.exception.ServiceException;
-import com.javaweb.model.dto.AssignmentBuildingDTO;
 import com.javaweb.model.dto.BuildingDTO;
+import com.javaweb.model.gennerate.BuildingGennerate;
 import com.javaweb.model.request.BuildingSearchRequest;
 import com.javaweb.model.response.BuildingSearchResponse;
 import com.javaweb.repository.AssignmentBuildingRepository;
@@ -19,6 +17,7 @@ import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.RentAreaRepository;
 import com.javaweb.repository.UserRepository;
 import com.javaweb.service.BuildingService;
+import com.javaweb.service.GeminiAIService;
 import com.javaweb.utils.UploadFileUtils;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.modelmapper.ModelMapper;
@@ -26,7 +25,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.awt.print.Pageable;
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,6 +46,8 @@ public class BuildingServiceImpl implements BuildingService {
     private AssignmentBuildingRepository assignmentBuildingRepository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private GeminiAIService geminiAIService;
 
     @Override
     public List<BuildingSearchResponse> findAll(BuildingSearchRequest request) {
@@ -91,6 +91,14 @@ public class BuildingServiceImpl implements BuildingService {
             }
             rentAreaEntityList.add(rentAreaEntity1);
         }
+        BuildingGennerate buildingGennerate = new BuildingGennerate();
+        buildingGennerate.setName(buildingDTO.getName());
+        buildingGennerate.setWard(buildingDTO.getWard());
+        buildingGennerate.setBedrooms(buildingDTO.getBedRoom());
+        buildingGennerate.setFloorArea(buildingDTO.getFloorArea());
+        buildingGennerate.setStreet(buildingDTO.getStreet());
+        String decription = geminiAIService.generateDescription(buildingGennerate);
+        buildingEntity.setDescription(decription);
         buildingRepository.save(buildingEntity);
         rentAreaRepository.saveAll(rentAreaEntityList);
         return null;

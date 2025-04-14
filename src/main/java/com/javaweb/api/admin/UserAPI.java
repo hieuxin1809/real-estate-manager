@@ -42,7 +42,6 @@ public class UserAPI {
             }
 
             userService.insert(newUser);
-
             response.setMessage("User created successfully");
             response.setDetail("New user has been added");
             response.setData(newUser);

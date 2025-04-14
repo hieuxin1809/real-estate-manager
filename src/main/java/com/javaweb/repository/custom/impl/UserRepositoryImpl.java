@@ -26,7 +26,6 @@ public class UserRepositoryImpl implements UserRepositoryCustom {
 
 	@Override
 	public List<UserEntity> getAllUsers(Pageable pageable) {
-
 		StringBuilder sql = new StringBuilder(buildQueryFilter())
 				.append(" LIMIT ").append(pageable.getPageSize()).append("\n")
 				.append(" OFFSET ").append(pageable.getOffset());

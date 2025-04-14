@@ -57,23 +57,22 @@ public class HomeController {
         ModelAndView mav = new ModelAndView("/web/contact");
         return mav;
     }
-    @RequestMapping(value = "/register",method = RequestMethod.GET)
+    @GetMapping("/register")
     public  ModelAndView register(){
         ModelAndView mav = new ModelAndView("/register");
         return mav;
     }
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+    @GetMapping("/login")
 	public ModelAndView login() {
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
-
-	@RequestMapping(value = "/access-denied", method = RequestMethod.GET)
+	@GetMapping("/access-denied")
 	public ModelAndView accessDenied() {
 		return new ModelAndView("redirect:/login?accessDenied");
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @GetMapping("/logout")
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {

@@ -52,6 +52,8 @@ public class BuildingDTO extends AbstractDTO{
     private String waterFee;
     private String imageBase64;
     private String imageName;
+    private Long bedRoom;
+    private String description;
 
     private Map<String,String> buildingDTOs = new HashMap<>();
 
